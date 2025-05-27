@@ -3,7 +3,7 @@
 
         {{-- Logo --}}
         <a href="/" class="text-2xl font-bold text-accent tracking-wide">
-            Sacred Geometry
+            Сакрална геометрия
         </a>
 
         {{-- Desktop Menu --}}
@@ -29,6 +29,13 @@
                     Блог
                 </a>
             </li>
+            <li>
+                <a href="/contact"
+                    class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-accent
+            hover:after:w-full after:transition-all after:duration-300 hover:text-accent transition">
+                    Контакти
+                </a>
+            </li>
         </ul>
 
 
@@ -44,6 +51,7 @@
             <li><a href="/" class="nav-link">Начало</a></li>
             <li><a href="/about" class="nav-link">За нас</a></li>
             <li><a href="/blog" class="nav-link">Блог</a></li>
+            <li><a href="/contact" class="nav-link">Контакти</a></li>
         </ul>
     </div>
 </nav>

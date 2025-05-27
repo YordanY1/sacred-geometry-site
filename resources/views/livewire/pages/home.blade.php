@@ -8,7 +8,7 @@
             „Хармонията на космоса е музиката на сакралната геометрия.“
         </p>
 
-        <a href="#explore"
+      <a href="{{ route('blog') }}"
             class="inline-block px-8 py-3 rounded-full bg-[--color-primary-light] text-accent font-semibold uppercase tracking-wide shadow-[0_0_10px_#d4af37] hover:bg-accent hover:text-black transition">
             Разгледай знанието
         </a>
@@ -47,19 +47,23 @@
             <h2 class="text-3xl font-bold text-accent mb-12">Нови Публикации</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                @foreach (range(1, 3) as $i)
+                @forelse ($latestPosts as $post)
                     <div class="bg-primary p-6 rounded-xl shadow hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold text-accent mb-2">Заглавие на статия {{ $i }}</h3>
+                        <h3 class="text-xl font-bold text-accent mb-2">{{ $post->title }}</h3>
                         <p class="text-text/80 mb-4">
-                            Кратко описание или въведение в статията, което представя основната идея или тема.
+                            {{ $post->excerpt }}
                         </p>
-                        <a href="#" class="text-accent hover:text-hover font-semibold">
+                        <a href="{{ route('blog.show', $post->slug) }}"
+                            class="text-accent hover:text-hover font-semibold">
                             Прочети повече →
                         </a>
                     </div>
-                @endforeach
+                @empty
+                    <p class="text-text/60 col-span-3">Все още няма публикувани статии.</p>
+                @endforelse
             </div>
         </div>
     </section>
+
 
 </div>

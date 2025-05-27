@@ -5,7 +5,7 @@
             <h4 class="text-accent font-semibold mb-4 uppercase tracking-wide text-lg">Компания</h4>
             <ul class="space-y-2">
                 <li>
-                    <a href="/about"
+                    <a href="{{ route('about') }}"
                         class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-px after:bg-accent
                               hover:after:w-full after:transition-all after:duration-300 hover:text-accent transition">
                         За нас
@@ -18,7 +18,7 @@
             <h4 class="text-accent font-semibold mb-4 uppercase tracking-wide text-lg">Линкове</h4>
             <ul class="space-y-2">
                 <li>
-                    <a href="/blog"
+                    <a href="{{ route('about') }}"
                         class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-px after:bg-accent
                               hover:after:w-full after:transition-all after:duration-300 hover:text-accent transition">
                         Блог
@@ -31,7 +31,7 @@
             <h4 class="text-accent font-semibold mb-4 uppercase tracking-wide text-lg">Контакти</h4>
             <ul class="space-y-2">
                 <li>
-                    <a href="/contact"
+                   <a href="{{ route('contact') }}"
                         class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-px after:bg-accent
                               hover:after:w-full after:transition-all after:duration-300 hover:text-accent transition">
                         Свържи се с нас
@@ -43,6 +43,6 @@
     </div>
 
     <div class="border-t border-white/10 pt-6 text-center text-text/50 text-xs tracking-wide">
-        © {{ now()->year }} Sacred Geometry. Всички права запазени.
+        © {{ now()->year }} Сакрална геометрия. Всички права запазени.
     </div>
 </footer>
