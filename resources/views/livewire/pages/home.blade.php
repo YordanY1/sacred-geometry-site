@@ -8,7 +8,7 @@
             „Хармонията на космоса е музиката на сакралната геометрия.“
         </p>
 
-      <a href="{{ route('blog') }}"
+        <a href="{{ route('blog') }}"
             class="inline-block px-8 py-3 rounded-full bg-[--color-primary-light] text-accent font-semibold uppercase tracking-wide shadow-[0_0_10px_#d4af37] hover:bg-accent hover:text-black transition">
             Разгледай знанието
         </a>
@@ -35,35 +35,7 @@
         <livewire:components.core-topics />
     </div>
 
-    <section class="py-20 bg-primary text-text text-center px-6">
-        <p class="text-xl md:text-2xl italic leading-relaxed max-w-3xl mx-auto text-accent/80">
-            „Геометрията ще привлече душата към истината и ще я научи да съзерцава съвършенството.“
-        </p>
-        <p class="mt-4 text-sm text-text/50">– Платон</p>
-    </section>
 
-    <section class="bg-primary-light py-24 px-6 text-text">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-accent mb-12">Нови Публикации</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                @forelse ($latestPosts as $post)
-                    <div class="bg-primary p-6 rounded-xl shadow hover:shadow-lg transition">
-                        <h3 class="text-xl font-bold text-accent mb-2">{{ $post->title }}</h3>
-                        <p class="text-text/80 mb-4">
-                            {{ $post->excerpt }}
-                        </p>
-                        <a href="{{ route('blog.show', $post->slug) }}"
-                            class="text-accent hover:text-hover font-semibold">
-                            Прочети повече →
-                        </a>
-                    </div>
-                @empty
-                    <p class="text-text/60 col-span-3">Все още няма публикувани статии.</p>
-                @endforelse
-            </div>
-        </div>
-    </section>
-
+    <livewire:components.latest-posts />
 
 </div>

@@ -9,7 +9,13 @@
 
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         @foreach ($posts as $post)
-            <div class="bg-primary-light rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+            <div class="bg-primary-light rounded-xl shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+
+                @if ($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="Снимка към {{ $post->title }}"
+                        class="w-full h-48 object-cover" />
+                @endif
+
                 <div class="p-6 flex flex-col justify-between h-full">
                     <div>
                         <h2 class="text-xl font-bold text-accent mb-3">
@@ -26,6 +32,5 @@
                 </div>
             </div>
         @endforeach
-
     </div>
 </div>
