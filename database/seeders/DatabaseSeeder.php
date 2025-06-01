@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PostSeeder::class,
-            TopicSeeder::class,
+            // TopicSeeder::class,
             CourseSeeder::class,
             BookSeeder::class,
             GalleryImageSeeder::class,

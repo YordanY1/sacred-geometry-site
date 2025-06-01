@@ -22,6 +22,7 @@
         'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+
 @utilities {
     .text-primary {
         color: var(--color-primary);
@@ -59,4 +60,5 @@
     .font-primary {
         font-family: var(--font-primary);
     }
+
 }
