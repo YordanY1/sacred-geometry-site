@@ -2,8 +2,9 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
         {{-- Logo --}}
-        <a href="/" wire:navigate class="text-2xl font-bold text-accent tracking-wide">
-            Сакрална геометрия
+        <a href="/" wire:navigate class="inline-block group">
+            <img src="{{ asset('images/logo/geometria_anima.png') }}" alt="Сакрална геометрия лого"
+                class="h-16 sm:h-20 lg:h-24 w-auto rounded-xl shadow-lg group-hover:scale-110 transition duration-300">
         </a>
 
         {{-- Desktop Menu --}}
