@@ -16,7 +16,15 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.pages.topics.show')
+        $groupedPosts = $this->topic->posts()
+            ->orderBy('section_heading')
+            ->orderBy('title')
+            ->get()
+            ->groupBy('section_heading');
+
+        return view('livewire.pages.topics.show', [
+            'groupedPosts' => $groupedPosts,
+        ])
             ->layout('layouts.app')
             ->title($this->topic->title);
     }

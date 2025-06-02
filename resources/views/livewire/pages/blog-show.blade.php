@@ -21,9 +21,10 @@
         @endif
 
 
-        <div class="prose prose-invert max-w-none text-text/90 leading-relaxed">
-            {!! nl2br(e($post->body)) !!}
+        <div class="prose prose-invert max-w-none text-text/90 leading-relaxed [&>img]:rounded-xl [&>img]:my-6">
+            {!! $post->content !!}
         </div>
+
 
 
         <div class="mt-12">

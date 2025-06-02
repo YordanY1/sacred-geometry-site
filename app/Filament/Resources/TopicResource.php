@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\BelongsToManyMultiSelect;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -30,7 +31,6 @@ class TopicResource extends Resource
             TextInput::make('title')
                 ->label('Заглавие')
                 ->required()
-                ->reactive()
                 ->afterStateUpdated(function ($state, callable $set) {
                     $set('slug', \Str::slug($state));
                 }),
@@ -58,20 +58,6 @@ class TopicResource extends Resource
                 ->label('Кратко описание')
                 ->rows(3),
 
-            RichEditor::make('content')
-                ->label('Съдържание')
-                ->columnSpan('full')
-                ->toolbarButtons([
-                    'bold',
-                    'italic',
-                    'underline',
-                    'strike',
-                    'link',
-                    'bulletList',
-                    'orderedList',
-                    'codeBlock',
-                    'blockquote',
-                ]),
         ]);
     }
 
