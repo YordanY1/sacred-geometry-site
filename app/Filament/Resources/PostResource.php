@@ -17,6 +17,8 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
 use FilamentTiptapEditor\TiptapEditor;
 use FilamentTiptapEditor\Enums\TiptapOutput;
+use Filament\Forms\Components\FileUpload;
+
 
 class PostResource extends Resource
 {
@@ -43,7 +45,10 @@ class PostResource extends Resource
                 ->label('Заглавие на секция / глава')
                 ->placeholder('Пример: The Monad – 1')
                 ->maxLength(255)
-                ->helperText('Това е заглавието на секцията или главата, в която се намира статията.'),
+                ->helperText('Това е заглавието на секцията или главата, в която се намира статията.
+                Например: "The Monad – 1" или "The Monad – 2".
+                Ако искаме да добавим статия към глава 1 пишем "The Monad – 1".
+                Ако искаме да добавим статия към глава 2 пишем "The Monad – 2". и тн.'),
 
             Select::make('topics')
                 ->label('Темa/и')
@@ -60,6 +65,16 @@ class PostResource extends Resource
             Textarea::make('excerpt')
                 ->label('Кратко описание')
                 ->rows(3),
+
+            FileUpload::make('image')
+                ->label('Основна снимка')
+                ->image()
+                ->imageEditor()
+                ->disk('public')
+                ->directory('uploads/posts/featured')
+                ->preserveFilenames()
+                ->nullable()
+                ->helperText('Тази снимка ще се показва най-отгоре над статията.'),
 
             TiptapEditor::make('content')
                 ->label('Съдържание')
