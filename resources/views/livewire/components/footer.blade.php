@@ -42,6 +42,7 @@
 
     </div>
 
+
     <div class="border-t border-white/10 pt-6 text-center text-text/50 text-xs tracking-wide">
         © {{ now()->year }} Сакрална геометрия. Всички права запазени.
     </div>

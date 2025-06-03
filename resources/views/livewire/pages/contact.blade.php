@@ -51,7 +51,7 @@
            shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 cursor-pointer">
                 Изпрати съобщение
             </button>
-
         </form>
+        <livewire:components.social-links />
     </div>
 </div>

@@ -35,7 +35,8 @@
         <livewire:components.core-topics />
     </div>
 
-
     <livewire:components.latest-posts />
+
+    <livewire:components.social-links />
 
 </div>
