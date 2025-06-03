@@ -7,6 +7,40 @@
                 class="h-16 sm:h-20 lg:h-24 w-auto rounded-xl shadow-lg group-hover:scale-110 transition duration-300">
         </a>
 
+        {{-- Search (Desktop) --}}
+        <div class="hidden md:flex items-center relative w-64">
+            <input type="text" wire:model.live.debounce.300ms="search" placeholder="Търси..."
+                class="w-full px-4 py-2 rounded-lg bg-white text-black shadow-md focus:outline-none focus:ring-2 focus:ring-accent">
+
+            @if (strlen($search) >= 2)
+                <div
+                    class="absolute top-full mt-2 w-full bg-white text-black rounded-lg shadow-xl z-50 max-h-64 overflow-auto">
+                    @forelse ($results as $group => $items)
+                        @if (count($items))
+                            <div class="px-4 py-2 border-b font-semibold text-accent">{{ $group }}</div>
+                            @foreach ($items as $item)
+                                @php
+                                    $route = match ($group) {
+                                        'Блог статии' => route('blog.show', $item->slug),
+                                        'Курсове' => route('courses.show', $item->slug),
+                                        'Книги' => route('books.show', $item->slug),
+                                        default => '#',
+                                    };
+                                @endphp
+                                <a href="{{ $route }}"
+                                    class="block px-4 py-2 hover:bg-accent hover:text-white transition duration-150">
+                                    {{ $item->title }}
+                                </a>
+                            @endforeach
+                        @endif
+                    @empty
+                        <div class="px-4 py-2 text-sm">Няма резултати</div>
+                    @endforelse
+                </div>
+            @endif
+        </div>
+
+
         {{-- Desktop Menu --}}
         <ul class="hidden md:flex gap-8 text-base uppercase tracking-wider">
             <li>
@@ -68,6 +102,40 @@
 
     {{-- Mobile Menu --}}
     <div x-show="open" x-transition class="md:hidden px-6 pb-6">
+
+        {{-- Search (Mobile) --}}
+        <div class="mt-4 mb-4 relative">
+            <input type="text" wire:model.live.debounce.300ms="search" placeholder="Търси..."
+                class="w-full px-4 py-2 rounded-lg bg-white text-black shadow-md focus:outline-none focus:ring-2 focus:ring-accent">
+
+            @if (strlen($search) >= 2)
+                <div
+                    class="absolute top-full mt-2 w-full bg-white text-black rounded-lg shadow-xl z-50 max-h-64 overflow-auto">
+                    @forelse ($results as $group => $items)
+                        @if (count($items))
+                            <div class="px-4 py-2 border-b font-semibold text-accent">{{ $group }}</div>
+                            @foreach ($items as $item)
+                                @php
+                                    $route = match ($group) {
+                                        'Блог статии' => route('blog.show', $item->slug),
+                                        'Курсове' => route('courses.show', $item->slug),
+                                        'Книги' => route('books.show', $item->slug),
+                                        default => '#',
+                                    };
+                                @endphp
+                                <a href="{{ $route }}"
+                                    class="block px-4 py-2 hover:bg-accent hover:text-white transition duration-150">
+                                    {{ $item->title }}
+                                </a>
+                            @endforeach
+                        @endif
+                    @empty
+                        <div class="px-4 py-2 text-sm">Няма резултати</div>
+                    @endforelse
+                </div>
+            @endif
+        </div>
+
         <ul class="flex flex-col gap-4 text-base uppercase tracking-wider">
             <li><a href="/" wire:navigate class="nav-link">Начало</a></li>
             <li><a href="/about" wire:navigate class="nav-link">За нас</a></li>
